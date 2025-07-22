@@ -41,7 +41,6 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _contactPHI() async {
     try {
-      // Show loading indicator
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -64,7 +63,6 @@ class _HomePageState extends State<HomePage> {
         );
       }
 
-      // Get PHI phone number from Firestore
       QuerySnapshot phiSnapshot = await FirebaseFirestore.instance
           .collection('phi')
           .limit(1)
@@ -83,7 +81,6 @@ class _HomePageState extends State<HomePage> {
         return;
       }
 
-      // Get phone number from first PHI document
       String phoneNumber = phiSnapshot.docs.first.get('phone_number') ?? '';
 
       if (phoneNumber.isEmpty) {
@@ -99,13 +96,10 @@ class _HomePageState extends State<HomePage> {
         return;
       }
 
-      // Clean the phone number (remove spaces, dashes, etc.)
       phoneNumber = phoneNumber.replaceAll(RegExp(r'[^\d+]'), '');
 
-      // Create the phone URI
       final Uri phoneUri = Uri(scheme: 'tel', path: phoneNumber);
 
-      // Check if phone calling is supported
       if (await canLaunchUrl(phoneUri)) {
         await launchUrl(phoneUri);
       } else {

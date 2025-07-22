@@ -24,9 +24,7 @@ class _AddOptionsState extends State<AddOptions> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          // Red status bar area
           Container(height: 67.5, color: Colors.red),
-          // App bar area
           Container(
             padding: const EdgeInsets.only(left: 0),
             height: 60,
@@ -99,7 +97,6 @@ class _AddOptionsState extends State<AddOptions> {
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: ListView(
                 children: [
-                  // Selected meal time button (disabled)
                   Container(
                     height: 50,
                     decoration: BoxDecoration(
@@ -119,13 +116,10 @@ class _AddOptionsState extends State<AddOptions> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  // Option 1
                   _buildOptionButton('Add Option 1', 'Option 1'),
                   const SizedBox(height: 16),
-                  // Option 2
                   _buildOptionButton('Add Option 2', 'Option 2'),
                   const SizedBox(height: 16),
-                  // Option 3
                   _buildOptionButton('Add Option 3', 'Option 3'),
                 ],
               ),

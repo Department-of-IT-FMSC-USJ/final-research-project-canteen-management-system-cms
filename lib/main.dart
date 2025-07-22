@@ -72,7 +72,6 @@ class _LoginPageState extends State<LoginPage> {
     }
 
     try {
-      // Query usernames collection for the username
       final usernameDoc = await _firestore
           .collection('usernames')
           .doc(_usernameController.text.trim().toLowerCase())

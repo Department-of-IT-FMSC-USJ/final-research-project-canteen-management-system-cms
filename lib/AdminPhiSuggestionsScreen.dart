@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
-import 'package:canteenapp/main.dart'; // Import your main.dart file
+import 'package:canteenapp/main.dart';
 
 class AdminPhiSuggestionsScreen extends StatefulWidget {
   const AdminPhiSuggestionsScreen({super.key});
@@ -65,7 +65,6 @@ class _AdminPhiSuggestionsScreenState extends State<AdminPhiSuggestionsScreen> {
         final data = doc.data();
         data['id'] = doc.id;
 
-        // Get PHI user details
         try {
           final phiDoc = await _firestore
               .collection('phi')

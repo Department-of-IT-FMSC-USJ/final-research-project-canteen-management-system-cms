@@ -25,10 +25,8 @@ class AdminComplaintView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          // 🔴 Red Status Bar
           Container(height: 67.5, color: Colors.red),
 
-          // 🔲 App Bar
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             height: 60,
@@ -36,7 +34,6 @@ class AdminComplaintView extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // 🔙 Back Button & Title
                 Row(
                   children: [
                     IconButton(
@@ -58,7 +55,6 @@ class AdminComplaintView extends StatelessWidget {
                     ),
                   ],
                 ),
-                // 👤 Account & Logout
                 Row(
                   children: [
                     IconButton(
@@ -91,7 +87,6 @@ class AdminComplaintView extends StatelessWidget {
             ),
           ),
 
-          // 🔃 Scrollable Complaints Section
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
               stream: FirebaseFirestore.instance

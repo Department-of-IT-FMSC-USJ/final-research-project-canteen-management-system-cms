@@ -37,7 +37,6 @@ class _AddMealDetailsState extends State<AddMealDetails> {
   @override
   void initState() {
     super.initState();
-    // Pre-fill fields if editing
     if (widget.initialMealName != null) {
       _mealNameController.text = widget.initialMealName!;
     }
@@ -146,7 +145,7 @@ class _AddMealDetailsState extends State<AddMealDetails> {
         return;
       }
 
-      String canteenName = user.uid; // Default to UID if no canteen_name
+      String canteenName = user.uid;
       final userDoc = await FirebaseFirestore.instance
           .collection('canteens')
           .doc(user.uid)
@@ -212,7 +211,7 @@ class _AddMealDetailsState extends State<AddMealDetails> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Meal saved successfully!'),
-          backgroundColor: Colors.green, // Changed to green
+          backgroundColor: Colors.green,
           duration: Duration(seconds: 2),
         ),
       );

@@ -46,10 +46,7 @@ class _CanteenNotificationViewState extends State<CanteenNotificationView> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          // 🔴 Fixed Red Status Bar
           Container(height: 67.5, color: Colors.red),
-
-          // 🔲 Fixed App Bar - White with back arrow, profile, and logout
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             height: 60,
@@ -103,7 +100,6 @@ class _CanteenNotificationViewState extends State<CanteenNotificationView> {
             ),
           ),
 
-          // 🔃 Scrollable Content
           Expanded(
             child: FutureBuilder<DocumentSnapshot>(
               future: FirebaseFirestore.instance

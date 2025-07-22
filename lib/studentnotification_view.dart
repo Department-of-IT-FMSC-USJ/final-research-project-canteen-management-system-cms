@@ -28,10 +28,8 @@ class StudentNotificationView extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          // 🔴 Fixed Red Status Bar
           Container(height: 67.5, color: Colors.red),
 
-          // 🔲 Fixed App Bar
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             height: 60,

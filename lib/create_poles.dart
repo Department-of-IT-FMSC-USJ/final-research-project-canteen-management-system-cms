@@ -18,9 +18,7 @@ class _CreatePolesState extends State<CreatePoles> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          // Red status bar area
           Container(height: 67.5, color: Colors.red),
-          // App bar area
           Container(
             padding: const EdgeInsets.only(left: 0),
             height: 60,

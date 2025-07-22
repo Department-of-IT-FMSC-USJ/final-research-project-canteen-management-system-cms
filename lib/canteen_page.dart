@@ -1,7 +1,7 @@
 import 'package:canteenapp/canteen_meal_management.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:canteenapp/main.dart'; // Import your main.dart file
+import 'package:canteenapp/main.dart';
 import 'package:canteenapp/canteen_complaints_and_suggestion.dart';
 import 'package:canteenapp/create_poles.dart';
 import 'package:canteenapp/canteen_feedback.dart';
@@ -19,17 +19,13 @@ class CanteenPage extends StatefulWidget {
 class _CanteenPageState extends State<CanteenPage> {
   Future<void> _handleLogout(BuildContext context) async {
     try {
-      // Sign out from Firebase
       await FirebaseAuth.instance.signOut();
-
-      // Navigate back to login page and clear the navigation stack
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(builder: (context) => const LoginPage()),
-        (route) => false, // This removes all previous routes
+        (route) => false,
       );
     } catch (e) {
-      // Show error message if logout fails
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -48,10 +44,7 @@ class _CanteenPageState extends State<CanteenPage> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          // 🔴 Fixed Red Status Bar
           Container(height: 67.5, color: Colors.red),
-
-          // 🔲 Fixed App Bar
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             height: 60,
@@ -113,14 +106,11 @@ class _CanteenPageState extends State<CanteenPage> {
             ),
           ),
 
-          // 🔃 Scrollable Content
           Expanded(
             child: SingleChildScrollView(
               child: Column(
                 children: [
                   const SizedBox(height: 10),
-
-                  // Logo
                   Container(
                     alignment: Alignment.center,
                     child: Image.asset(
@@ -132,7 +122,6 @@ class _CanteenPageState extends State<CanteenPage> {
 
                   const SizedBox(height: 10),
 
-                  // Title
                   const Text(
                     'University Canteen\nManagement System',
                     textAlign: TextAlign.center,

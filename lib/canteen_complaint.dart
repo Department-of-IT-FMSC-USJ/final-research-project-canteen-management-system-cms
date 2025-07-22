@@ -134,7 +134,6 @@ class _CanteenComplaintScreenState extends State<CanteenComplaintScreen> {
         return;
       }
 
-      // Prepare complaint data
       final complaintData = {
         'canteen_name': canteenName,
         'complaint_type': selectedComplaintType,

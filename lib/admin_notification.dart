@@ -89,7 +89,6 @@ class _AdminNotificationScreenState extends State<AdminNotificationScreen> {
         return;
       }
 
-      // Verify admin role
       final adminDoc = await _firestore
           .collection('admins')
           .doc(user.uid)
@@ -264,7 +263,7 @@ class _AdminNotificationScreenState extends State<AdminNotificationScreen> {
                       onChanged: (String? newValue) {
                         setState(() {
                           _selectedRecipientType = newValue;
-                          _selectedCanteen = null; // Reset canteen selection
+                          _selectedCanteen = null;
                         });
                       },
                       icon: const Icon(

@@ -35,7 +35,7 @@ class _CanteenMealManagementState extends State<CanteenMealManagement> {
         });
       } else {
         setState(() {
-          _canteenName = user.uid; // Fallback to uid if canteen_name is missing
+          _canteenName = user.uid;
         });
         print('Warning: canteen_name not found, using uid: ${user.uid}');
       }
@@ -82,9 +82,7 @@ class _CanteenMealManagementState extends State<CanteenMealManagement> {
               const Text('Please login to view meals'),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () {
-                  // Add login navigation logic here
-                },
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                 child: const Text(
                   'Login',

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:canteenapp/main.dart'; // Import your main.dart file
+import 'package:canteenapp/main.dart';
 import 'package:canteenapp/phi_suggestion_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -131,10 +131,8 @@ class PhiPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          // 🔴 Fixed Red Status Bar
           Container(height: 67.5, color: Colors.red),
 
-          // 🔲 Fixed App Bar
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             height: 60,
@@ -188,7 +186,6 @@ class PhiPage extends StatelessWidget {
             ),
           ),
 
-          // 🔃 Scrollable Content
           Expanded(
             child: SingleChildScrollView(
               child: Column(

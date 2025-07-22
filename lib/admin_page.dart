@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:canteenapp/main.dart'; // Import your main.dart file
-import 'package:canteenapp/admin_complaint_view.dart'; // Verify this path
+import 'package:canteenapp/main.dart';
+import 'package:canteenapp/admin_complaint_view.dart';
 import 'package:canteenapp/admin_notification.dart';
 import 'package:canteenapp/AdminPhiSuggestionsScreen.dart';
 
@@ -17,17 +17,14 @@ class AdminPage extends StatefulWidget {
 class _AdminPageState extends State<AdminPage> {
   Future<void> _handleLogout(BuildContext context) async {
     try {
-      // Sign out from Firebase
       await FirebaseAuth.instance.signOut();
 
-      // Navigate back to login page and clear the navigation stack
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(builder: (context) => const LoginPage()),
-        (route) => false, // This removes all previous routes
+        (route) => false,
       );
     } catch (e) {
-      // Show error message if logout fails
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -42,7 +39,6 @@ class _AdminPageState extends State<AdminPage> {
 
   Future<void> _contactPHI() async {
     try {
-      // Show loading indicator
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -65,13 +61,9 @@ class _AdminPageState extends State<AdminPage> {
         );
       }
 
-      // Get PHI phone number from Firestore
       QuerySnapshot phiSnapshot = await FirebaseFirestore.instance
           .collection('phi')
-          .where(
-            'phone_number',
-            isNotEqualTo: '',
-          ) // Only get PHI with phone numbers
+          .where('phone_number', isNotEqualTo: '')
           .limit(1)
           .get();
 
@@ -88,7 +80,6 @@ class _AdminPageState extends State<AdminPage> {
         return;
       }
 
-      // Get phone number from first PHI document
       final docData = phiSnapshot.docs.first.data() as Map<String, dynamic>;
       String phoneNumber = docData['phone_number'] ?? '';
 
@@ -105,13 +96,8 @@ class _AdminPageState extends State<AdminPage> {
         return;
       }
 
-      // Clean the phone number (remove spaces, dashes, etc.)
       phoneNumber = phoneNumber.replaceAll(RegExp(r'[^\d+]'), '');
-
-      // Create the phone URI
       final Uri phoneUri = Uri(scheme: 'tel', path: phoneNumber);
-
-      // Check if phone calling is supported
       if (await canLaunchUrl(phoneUri)) {
         await launchUrl(phoneUri);
       } else {
@@ -144,10 +130,8 @@ class _AdminPageState extends State<AdminPage> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          // 🔴 Fixed Red Status Bar
           Container(height: 67.5, color: Colors.red),
 
-          // 🔲 Fixed App Bar
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             height: 60,
@@ -201,14 +185,12 @@ class _AdminPageState extends State<AdminPage> {
             ),
           ),
 
-          // 🔃 Scrollable Content
           Expanded(
             child: SingleChildScrollView(
               child: Column(
                 children: [
                   const SizedBox(height: 10),
 
-                  // Logo
                   Container(
                     alignment: Alignment.center,
                     child: Image.asset(
@@ -220,7 +202,6 @@ class _AdminPageState extends State<AdminPage> {
 
                   const SizedBox(height: 10),
 
-                  // Title
                   const Text(
                     'University Canteen\nManagement System',
                     textAlign: TextAlign.center,
@@ -312,8 +293,7 @@ class _AdminPageState extends State<AdminPage> {
                   ),
                   const SizedBox(height: 10),
                   ElevatedButton(
-                    onPressed:
-                        _contactPHI, // Added the contact PHI functionality
+                    onPressed: _contactPHI,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red[700],
                       minimumSize: const Size(360, 45),
@@ -322,8 +302,7 @@ class _AdminPageState extends State<AdminPage> {
                       ),
                     ),
                     child: Row(
-                      mainAxisSize: MainAxisSize
-                          .min, // Keeps the row tight around content
+                      mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
                         Icon(Icons.phone, color: Colors.white, size: 20),
@@ -339,7 +318,7 @@ class _AdminPageState extends State<AdminPage> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 20), // Added bottom spacing
+                  const SizedBox(height: 20),
                 ],
               ),
             ),

@@ -113,7 +113,6 @@ class _CalorieCalculatorState extends State<CalorieCalculator> {
     }
 
     try {
-      // Replace with your Flask server URL
       const String apiUrl =
           'ngrok config add-authtoken 30Eix6DNiRBdZ8yJL15xbF1xeAO_5VnNfpzNpv5pWgBEgACqH';
 

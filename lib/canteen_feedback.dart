@@ -32,7 +32,7 @@ class _CanteenFeedbackState extends State<CanteenFeedback> {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
       final userDoc = await FirebaseFirestore.instance
-          .collection('canteens') // Using 'canteens' collection
+          .collection('canteens')
           .doc(user.uid)
           .get();
       if (userDoc.exists) {

@@ -24,8 +24,8 @@ class CanteenMenu extends StatelessWidget {
     String name,
     Uint8List? imageBytes,
     String price,
-    double rating, // Average rating from feedback
-    String docId, // For navigation
+    double rating,
+    String docId,
     Color? bordercolor,
   ) {
     return GestureDetector(
@@ -350,7 +350,7 @@ class CanteenMenu extends StatelessWidget {
                         meal['meal_name'] as String,
                         imageBytes,
                         meal['price'].toString(),
-                        0.0, // Error fallback
+                        0.0,
                         doc.id,
                         const Color.fromARGB(255, 0, 0, 0),
                       );
@@ -374,7 +374,7 @@ class CanteenMenu extends StatelessWidget {
                         meal['meal_name'] as String,
                         imageBytes,
                         meal['price'].toString(),
-                        0.0, // Loading placeholder
+                        0.0,
                         doc.id,
                         const Color.fromARGB(255, 0, 0, 0),
                       );

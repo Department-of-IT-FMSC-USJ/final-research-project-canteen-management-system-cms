@@ -118,7 +118,6 @@ class _ComplaintsAndSuggestionsState extends State<ComplaintsAndSuggestions> {
         return;
       }
 
-      // Check if user exists in students collection
       final userExists = await _checkUserExists(user.uid);
       if (!userExists) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -303,7 +302,6 @@ class _ComplaintsAndSuggestionsState extends State<ComplaintsAndSuggestions> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Canteen Dropdown
                   Container(
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.red, width: 2),
@@ -340,8 +338,6 @@ class _ComplaintsAndSuggestionsState extends State<ComplaintsAndSuggestions> {
                     ),
                   ),
                   const SizedBox(height: 20),
-
-                  // Complaint Type Dropdown
                   Container(
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.red, width: 2),
@@ -379,7 +375,6 @@ class _ComplaintsAndSuggestionsState extends State<ComplaintsAndSuggestions> {
                   ),
                   const SizedBox(height: 20),
 
-                  // Message Text Field
                   Container(
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.red, width: 2),
@@ -398,7 +393,6 @@ class _ComplaintsAndSuggestionsState extends State<ComplaintsAndSuggestions> {
                   ),
                   const SizedBox(height: 30),
 
-                  // Upload image section
                   Row(
                     children: [
                       const Text(
